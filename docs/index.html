@@ -18,53 +18,6 @@
         left: 0;
         z-index: 1;
     }
-    @keyframes rotateGlow {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    #morph-button {
-        position: absolute;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        padding: 14px 28px;
-        border-radius: 15px;
-        overflow: hidden;
-        text-align: center;
-        font-size: 14px;
-        color: rgba(255, 255, 255, 0.95);
-        background: rgba(25, 25, 25, 0.4);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        transition: transform 0.2s ease;
-        cursor: pointer; 
-        user-select: none;
-    }
-    #morph-button:hover {
-        transform: translateX(-50%) scale(1.05);
-    }
-    #morph-button:active {
-        transform: translateX(-50%) scale(0.98);
-        transition-duration: 0.1s;
-    }
-    #morph-button::before {
-        content: '';
-        position: absolute;
-        inset: -4px;
-        z-index: -1;
-        background: conic-gradient(
-            from 0deg,
-            rgba(255,255,255,0) 0%,
-            #ffffff 50%,
-            rgba(255,255,255,0) 100%
-        );
-        filter: blur(8px);
-        border-radius: inherit;
-        animation: rotateGlow 8s linear infinite;
-    }
     #controls-panel {
         position: absolute;
         top: 20px;
@@ -110,10 +63,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-
-<div id="morph-button">
-    Click to Morph
-</div>
 
 <div id="controls-panel">
     <h3>Controls</h3>
@@ -175,7 +124,7 @@
     
     let particleCount = PARTICLES_COUNT;
     let trailLength = 0.25;
-    let showControls = false;
+    let showControls = true;
 
     class Particle {
         constructor() {
@@ -359,15 +308,6 @@
             p.prevPos.set(p.pos);
             particles.push(p);
         }
-
-        const morphButton = document.getElementById('morph-button');
-        morphButton.addEventListener('click', () => {
-            if (!isMorphing) {
-                isMorphing = true;
-                morphFrame = 0;
-                targetShape = (currentShape + 1) % TOTAL_SHAPES;
-            }
-        });
 
         updateControlPanel();
     }
