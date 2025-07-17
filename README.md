@@ -1,7 +1,7 @@
-# P5.js Particle Morph
+# [Particle Morph](https://tonyjzhou.github.io/particle-morph/)
 
-A Pen created on CodePen.
-
-Original URL: [https://codepen.io/VoXelo/pen/vENNGQL](https://codepen.io/VoXelo/pen/vENNGQL).
+Inspired by [Techartist](https://x.com/techartist_)'s work.
 
 An interactive JavaScript experiment using the p5.js to create animated particles that morph into various geometric forms with a click.
+
+Available at [https://tonyjzhou.github.io/particle-morph/](https://tonyjzhou.github.io/particle-morph/).
