@@ -115,6 +115,17 @@
             this.applyForce(steer);
         }
 
+        flee(target) {
+            let desired = p5.Vector.sub(this.pos, target);
+            let distance = desired.mag();
+            if (distance < 100) {
+                desired.setMag(this.maxSpeed);
+                let steer = p5.Vector.sub(desired, this.vel);
+                steer.limit(this.maxForce * 0.5);
+                this.applyForce(steer);
+            }
+        }
+
         applyForce(force) {
             this.acc.add(force);
         }
