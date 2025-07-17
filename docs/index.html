@@ -250,6 +250,7 @@
             }
             
             p.seek(targetPos);
+            p.flee(createVector(mouseX - width / 2, mouseY - height / 2));
             p.update();
             p.draw();
         }
