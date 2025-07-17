@@ -263,6 +263,8 @@
             case SQUARE:   return getSquarePos(angle, radius);
             case TRIANGLE: return getTrianglePos(angle, radius);
             case STAR:     return getStarPos(angle, radius);
+            case PENTAGON: return getPentagonPos(angle, radius);
+            case HEXAGON:  return getHexagonPos(angle, radius);
             default:       return createVector(0, 0);
         }
     }
